@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package gis.protobuf;
+
+import "gis/protobuf/coordinate.proto";
+
+// type: LineString
+// coordinates: [[x, y], [x, y]]
+message LineString2D {
+    repeated gis.protobuf.Coordinate2D point = 1;
+}
+
+// type: LineString
+// coordinates: [[x, y, z], [x, y, z]]
+message LineString3D {
+    repeated gis.protobuf.Coordinate3D point = 1;
+}
+
+// type: MultiLineString
+// coordinates: [[[x, y], [x, y]], [[x, y], [x, y]]]
+message MultiLineString2D {
+    repeated LineString2D lineString = 1;
+}
+
+// type: MultiLineString
+// coordinates: [[[x, y, z], [x, y, z]], [[x, y, z], [x, y, z]]]
+message MultiLineString3D {
+    repeated LineString3D lineString = 1;
+}

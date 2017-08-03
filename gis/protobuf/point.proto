@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package gis.protobuf;
+
+import "gis/protobuf/coordinate.proto";
+
+// type: Point
+// coordinates: [x, y]
+message Point2D {
+    gis.protobuf.Coordinate2D point = 1;
+}
+
+// type: Point
+// coordinates: [x, y, z]
+message Point3D {
+    gis.protobuf.Coordinate3D point = 1;
+}
+
+// type: MultiPoint
+// coordinates: [[x, y], [x, y]]
+message MultiPoint2D {
+    repeated gis.protobuf.Coordinate2D point = 1;
+}
+
+// type: MultiPoint
+// coordinates: [[x, y, z], [x, y, z]]
+message MultiPoint3D {
+    repeated gis.protobuf.Coordinate3D point = 1;
+}
