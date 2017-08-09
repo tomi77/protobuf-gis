@@ -8,12 +8,14 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "protoc --js_out=import_style=commonjs,binary:. -I/usr/include /usr/include/gis/protobuf/*.proto",
-    "patch-coordinate": "cat patch/coordinate.js >> gis/protobuf/coordinate_pb.js",
-    "patch-point": "cat patch/point.js >> gis/protobuf/point_pb.js",
-    "patch-linestring": "cat patch/linestring.js >> gis/protobuf/linestring_pb.js",
-    "patch-polygon": "cat patch/polygon.js >> gis/protobuf/polygon_pb.js",
-    "postinstall": "npm run build; npm run patch-coordinate; npm run patch-point; npm run patch-linestring; npm run patch-polygon"
+    "prepare": "cp -r ../gis .",
+    "build": "protoc --js_out=import_style=commonjs,binary:. -I. gis/protobuf/*.proto",
+    "postbuild": "npm run patch:coordinate; npm run patch:point; npm run patch:linestring; npm run patch:polygon",
+    "patch:coordinate": "cat patch/coordinate.js >> gis/protobuf/coordinate_pb.js",
+    "patch:point": "cat patch/point.js >> gis/protobuf/point_pb.js",
+    "patch:linestring": "cat patch/linestring.js >> gis/protobuf/linestring_pb.js",
+    "patch:polygon": "cat patch/polygon.js >> gis/protobuf/polygon_pb.js",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
