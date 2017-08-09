@@ -1,6 +1,3 @@
-let coordinate = require('./gis/protobuf/coordinate_pb');
-module.exports.Coordinate2D = coordinate.Coordinate2D;
-module.exports.Coordinate3D = coordinate.Coordinate3D;
 let point = require('./gis/protobuf/point_pb');
 module.exports.Point2D = point.Point2D;
 module.exports.Point3D = point.Point3D;

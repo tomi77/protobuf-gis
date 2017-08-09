@@ -5,13 +5,9 @@
  * Creates an GeoJSON repesentation of a "Point2D/Point3D" type object.
  */
 proto.gis.protobuf.Point2D.prototype.toGeoJSON = proto.gis.protobuf.Point3D.prototype.toGeoJSON = function() {
-  let coordinates = null;
-  if (this.hasPoint()) {
-    coordinates = this.getPoint().toGeoJSON();
-  }
   return {
     type: 'Point',
-    coordinates: coordinates
+    coordinates: [this.getX(), this.getY()]
   };
 };
 
