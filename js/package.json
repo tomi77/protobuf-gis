@@ -17,7 +17,7 @@
     "patch:linestring": "cat patch/linestring.js >> gis/protobuf/linestring_pb.js",
     "patch:polygon": "cat patch/polygon.js >> gis/protobuf/polygon_pb.js",
     "postinstall": "npm run build",
-    "fix:pb": "sed -rs -i \"s\/'.*gis\\/protobuf\\/(\\w*)_pb.js'\/'protobuf-gis\\/gis\\/protobuf\\/\\1_pb\\.js'\/g\"",
+    "fix:pb": "sed -rs -i \"s\/'(.*gis\\/protobuf\\/\\w*_pb.js)'\/'protobuf-gis'\/g\"",
     "pretest": "npm run prepare; npm run build",
     "test": "jasmine"
   },
