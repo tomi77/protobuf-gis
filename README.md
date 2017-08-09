@@ -29,7 +29,7 @@ In `proto/test.proto` file:
 ~~~
 syntax = "proto3";
 
-import "node_modules/protobuf-gis/gis/protobuf/point.proto";
+import "gis/protobuf/point.proto";
 
 package test;
 
@@ -41,8 +41,11 @@ message Test {
 Build:
 
 ~~~sh
-protoc --js_out=import_style=commonjs,binary:. -I . proto/test.proto
+protoc --js_out=import_style=commonjs,binary:. -I node_modules/protobuf-gis -I . proto/test.proto
+npm explore protobuf-gis -- npm run fix:pb ../../proto/test_pb.js
 ~~~
+
+`fix:pb` script fixes paths to `protobuf-gis` `*_pb.js` files. Path to `test_pb.js` is relative to `node_modules/protobuf-gis` folder.
 
 Code:
 
