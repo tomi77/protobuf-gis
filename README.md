@@ -1,5 +1,7 @@
 # protobuf-gis
 
+[![Build Status](https://travis-ci.org/tomi77/protobuf-gis.svg?branch=master)](https://travis-ci.org/tomi77/protobuf-gis)
+
 ## Installation
 
 ### NodeJS

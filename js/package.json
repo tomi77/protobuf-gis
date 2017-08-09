@@ -6,7 +6,9 @@
   "dependencies": {
     "google-protobuf": "^3.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.7.0"
+  },
   "scripts": {
     "prepare": "cp -r ../gis .",
     "build": "protoc --js_out=import_style=commonjs,binary:. -I. gis/protobuf/*.proto",
@@ -14,7 +16,9 @@
     "patch:point": "cat patch/point.js >> gis/protobuf/point_pb.js",
     "patch:linestring": "cat patch/linestring.js >> gis/protobuf/linestring_pb.js",
     "patch:polygon": "cat patch/polygon.js >> gis/protobuf/polygon_pb.js",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "pretest": "npm run prepare; npm run build",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",

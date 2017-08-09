@@ -19,11 +19,11 @@ message LineString3D {
 // type: MultiLineString
 // coordinates: [[[x, y], [x, y]], [[x, y], [x, y]]]
 message MultiLineString2D {
-    repeated LineString2D lineString = 1;
+    repeated LineString2D line_string = 1;
 }
 
 // type: MultiLineString
 // coordinates: [[[x, y, z], [x, y, z]], [[x, y, z], [x, y, z]]]
 message MultiLineString3D {
-    repeated LineString3D lineString = 1;
+    repeated LineString3D line_string = 1;
 }

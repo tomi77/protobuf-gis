@@ -2,18 +2,18 @@ syntax = "proto3";
 
 package gis.protobuf;
 
-import "gis/protobuf/coordinate.proto";
+import "gis/protobuf/point.proto";
 
 // type: Polygon
 // coordinates: [[[x, y], [x, y]]]
 message Polygon2D {
-    repeated gis.protobuf.Coordinate2D point = 1;
+    repeated gis.protobuf.Point2D point = 1;
 }
 
 // type: Polygon
 // coordinates: [[[x, y, z], [x, y, z]]]
 message Polygon3D {
-    repeated gis.protobuf.Coordinate3D point = 1;
+    repeated gis.protobuf.Point3D point = 1;
 }
 
 // type: MultiPolygin
