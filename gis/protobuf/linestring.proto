@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package gis.protobuf;
 
+option java_package = "com.github.tomi77.gis";
+option java_multiple_files = true;
+
 import "gis/protobuf/point.proto";
 
 // type: LineString
