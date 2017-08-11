@@ -267,7 +267,7 @@ point.setY(20)
 let test = new Test()
 test.setPoint(point)
 
-b = test.serializeBinary()
+let b = test.serializeBinary()
 console.log(b)
 
 test = Test.deserializeBinary(b)
