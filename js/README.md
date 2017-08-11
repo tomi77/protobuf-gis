@@ -2,7 +2,7 @@
 
 [![dependencies Status](https://david-dm.org/tomi77/protobuf-gis/status.svg?path=js)](https://david-dm.org/tomi77/protobuf-gis?path=js)
 [![devDependencies Status](https://david-dm.org/tomi77/protobuf-gis/dev-status.svg?path=js)](https://david-dm.org/tomi77/protobuf-gis?path=js&type=dev)
-![Downloads](https://img.shields.io/npm/dt/handlebars-helpers-underscore.string.svg)
+![Downloads](https://img.shields.io/npm/dt/protobuf-gis.svg)
 
 ## Installation
 
