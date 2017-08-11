@@ -2,6 +2,14 @@
 
 [![Build Status](https://travis-ci.org/tomi77/protobuf-gis.svg?branch=master)](https://travis-ci.org/tomi77/protobuf-gis)
 
+### Optional global installation
+
+`.proto` files will be installed in a `/usr/incude/` folder.
+
+    git clone https://github.com/tomi77/protobuf-gis.git
+    cd protobuf-gis
+    make
+
 ## Messages
 
 ### Point
