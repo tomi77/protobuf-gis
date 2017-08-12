@@ -4,11 +4,42 @@
 
 ### Optional global installation
 
-`.proto` files will be installed in a `/usr/incude/` folder.
+Clone repo
 
-    git clone https://github.com/tomi77/protobuf-gis.git
-    cd protobuf-gis
-    make
+~~~sh
+git clone https://github.com/tomi77/protobuf-gis.git
+cd protobuf-gis
+~~~
+
+Set up an m4 environment
+
+~~~sh
+aclocal
+~~~
+
+Generate configure from configure.ac
+
+~~~sh
+autoconf
+~~~
+
+Generate Makefile.in from Makefile.am
+
+~~~sh
+automake --add-missing
+~~~
+
+Generate Makefile from Makefile.in
+
+~~~sh
+./configure
+~~~
+
+Install files
+
+~~~sh
+make install
+~~~
 
 ## Messages
 
