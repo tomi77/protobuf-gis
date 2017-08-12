@@ -10,3 +10,4 @@ install-sh
 Makefile
 Makefile.in
 missing
+protobuf-gis-*
