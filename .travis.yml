@@ -30,14 +30,13 @@ before_install:
   - unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
   - sudo mv protoc3/bin/* /usr/local/bin/
   - sudo mv protoc3/include/* /usr/local/include/
-  - [ $TEST_NODE -eq 1 ] || cd js
-  - [ $TEST_NODE -eq 1 ] || npm run prepare
-  - [ $TEST_PYTHON -eq 1 ] || cd python
+  - if [ $TEST_NODE == 1 ]; then cd js; npm run prepare; fi
+  - if [ $TEST_PYTHON == 1 ]; then cd python; fi
 
 install:
-  - [ $TEST_NODE -eq 1 ] || npm install
-  - [ $TEST_PYTHON -eq 1 ] || pip install protobuf==3.3.0
+  - if [ $TEST_NODE == 1 ]; then npm install; fi
+  - if [ $TEST_PYTHON == 1 ]; then pip install protobuf==3.3.0; fi
 
 script:
-  - [ $TEST_NODE -eq 1] || npm test
-  - [ $TEST_PYTHON -eq 1 ] || python setup.py test
+  - if [ $TEST_NODE == 1 ]; then npm test; fi
+  - if [ $TEST_PYTHON == 1 ]; then python setup.py test; fi
