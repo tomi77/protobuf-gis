@@ -1,8 +1,9 @@
 language: node_js
 
 env:
-  - TEST_NODE=yes
-  - TEST_PYTHON=no
+  global:
+    - TEST_NODE=yes
+    - TEST_PYTHON=no
 
 matrix:
   include:
