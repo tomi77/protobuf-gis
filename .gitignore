@@ -2,6 +2,12 @@ node_modules
 *_pb.js
 js/gis/
 
+python/build/
+python/dist/
+python/protobuf_gis.egg-info
+__pycache__
+*.pyc
+
 autom4te.cache/
 aclocal.m4
 config.*
