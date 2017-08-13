@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='protobuf-gis',
-    version='1.0.2',
+    version='1.0.3',
     author='Tomasz Jakub Rup',
     author_email='tomasz.rup@gmail.com',
     url='https://github.com/tomi77/protobuf-gis',
