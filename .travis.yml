@@ -1,11 +1,43 @@
 language: node_js
 
-node_js: node
+env:
+
+matrix:
+  include:
+    - node_js: node
+      env:
+        - TEST_NODE=1
+        - TEST_PYTHON=0
+    - python: 2.7
+      env:
+        - TEST_NODE=0
+        - TEST_PYTHON=1
+    - python: 3.4
+      env:
+        - TEST_NODE=0
+        - TEST_PYTHON=1
+    - python: 3.5
+      env:
+        - TEST_NODE=0
+        - TEST_PYTHON=1
+    - python: 3.6
+      env:
+        - TEST_NODE=0
+        - TEST_PYTHON=1
 
 before_install:
   - curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
   - unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
   - sudo mv protoc3/bin/* /usr/local/bin/
   - sudo mv protoc3/include/* /usr/local/include/
-  - cd js
-  - npm run prepare
+  - [ $TEST_NODE -eq 1 ] || cd js
+  - [ $TEST_NODE -eq 1 ] || npm run prepare
+  - [ $TEST_PYTHON -eq 1 ] || cd python
+
+install:
+  - [ $TEST_NODE -eq 1 ] || npm install
+  - [ $TEST_PYTHON -eq 1 ] || pip install protobuf==3.3.0
+
+script:
+  - [ $TEST_NODE -eq 1] || npm test
+  - [ $TEST_PYTHON -eq 1 ] || python setup.py test
