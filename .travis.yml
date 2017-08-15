@@ -4,6 +4,7 @@ env:
   global:
     - TEST_NODE=no
     - TEST_PYTHON=no
+    - TEST_RUBY=no
 
 matrix:
   include:
@@ -11,22 +12,32 @@ matrix:
       env:
         - TEST_NODE=yes
         - TEST_PYTHON=no
+        - TEST_RUBY=no
     - python: 2.7
       env:
         - TEST_NODE=no
         - TEST_PYTHON=yes
+        - TEST_RUBY=no
     - python: 3.4
       env:
         - TEST_NODE=no
         - TEST_PYTHON=yes
+        - TEST_RUBY=no
     - python: 3.5
       env:
         - TEST_NODE=no
         - TEST_PYTHON=yes
+        - TEST_RUBY=no
     - python: 3.6
       env:
         - TEST_NODE=no
         - TEST_PYTHON=yes
+        - TEST_RUBY=no
+    - rvm: 2.4.1
+      env:
+        - TEST_NODE=no
+        - TEST_PYTHON=no
+        - TEST_RUBY=yes
 
 before_install:
   - curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
@@ -35,11 +46,14 @@ before_install:
   - sudo mv protoc3/include/* /usr/local/include/
   - if [ $TEST_NODE == "yes" ]; then cd js; npm run prepare; fi
   - if [ $TEST_PYTHON == "yes" ]; then cd python; fi
+  - if [ $TEST_RUBY == "yes" ]; then cd ruby; gem install bundler -v 1.15.3; fi
 
 install:
   - if [ $TEST_NODE == "yes" ]; then npm install; fi
   - if [ $TEST_PYTHON == "yes" ]; then pip install protobuf==3.3.0; fi
+  - if [ $TEST_RUBY == "yes" ]; then ./bin/setup; fi
 
 script:
   - if [ $TEST_NODE == "yes" ]; then npm test; fi
   - if [ $TEST_PYTHON == "yes" ]; then python setup.py test; fi
+  - if [ $TEST_RUBY == "yes" ]; then rake spec; fi

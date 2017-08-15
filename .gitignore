@@ -1,12 +1,26 @@
+# js
 node_modules
 *_pb.js
 js/gis/
 
+# python
 python/build/
 python/dist/
 python/protobuf_gis.egg-info
 __pycache__
 *.pyc
+
+# ruby
+ruby/.bundle/
+ruby/.yardoc
+ruby/Gemfile.lock
+ruby/_yardoc/
+ruby/coverage/
+ruby/doc/
+ruby/pkg/
+ruby/spec/reports/
+ruby/tmp/
+ruby/.rspec_status
 
 autom4te.cache/
 aclocal.m4
