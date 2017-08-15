@@ -25,11 +25,8 @@ proto.gis.protobuf.Point3D.prototype.toGeoJSON = function() {
  * Creates an GeoJSON repesentation of a "MultiPoint2D/MultiPoint3D" type object.
  */
 proto.gis.protobuf.MultiPoint2D.prototype.toGeoJSON = proto.gis.protobuf.MultiPoint3D.prototype.toGeoJSON = function() {
-  let coordinates = this.getPointList().map(function (point) {
-    return point.toGeoJSON().coordinates
-  });
   return {
     type: 'MultiPoint',
-    coordinates: coordinates
+    coordinates: this.getPointList().map(point => point.toGeoJSON().coordinates)
   };
 };
