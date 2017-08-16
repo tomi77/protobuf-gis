@@ -1,6 +1,4 @@
 require "spec_helper"
-require "protobuf_gis/patch"
-require "gis/protobuf/point_pb"
 
 RSpec.describe "Gis::Protobuf::Point2D has getGeoJSON function" do
   it "which returns a GeoJSON object" do
