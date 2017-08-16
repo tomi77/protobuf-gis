@@ -1,7 +1,7 @@
 require "spec_helper"
 
-RSpec.describe ProtobufGis do
+RSpec.describe Gis::Protobuf do
   it "has a version number" do
-    expect(ProtobufGis::VERSION).not_to be nil
+    expect(Gis::Protobuf::VERSION).not_to be nil
   end
 end
