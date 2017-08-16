@@ -1,17 +1,16 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "protobuf_gis/version"
+require "gis/protobuf/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "protobuf_gis"
-  spec.version       = ProtobufGis::VERSION
+  spec.name          = "gis-protobuf"
+  spec.version       = Gis::Protobuf::VERSION
   spec.authors       = ["Tomasz Jakub Rup"]
   spec.email         = ["tomasz.rup@gmail.com"]
 
   spec.summary       = "Test"
-  # spec.description   = %q{TODO: Write a longer description or delete this line.}
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -30,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "google-protobuf", "~> 3.3.0"
+  spec.add_runtime_dependency "google-protobuf", "~> 3.3.0"
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
