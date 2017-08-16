@@ -4,7 +4,7 @@ require "gis/protobuf/polygon_pb"
 
 Gis::Protobuf::Point2D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "Point",
       coordinates: [self.x, self.y]
     }
@@ -13,7 +13,7 @@ Gis::Protobuf::Point2D.class_eval {
 
 Gis::Protobuf::Point3D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "Point",
       coordinates: [self.x, self.y, self.z]
     }
@@ -22,7 +22,7 @@ Gis::Protobuf::Point3D.class_eval {
 
 Gis::Protobuf::MultiPoint2D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "MultiPoint",
       coordinates: self.point.map { |point| point.toGeoJSON()[:coordinates] }
     }
@@ -31,7 +31,7 @@ Gis::Protobuf::MultiPoint2D.class_eval {
 
 Gis::Protobuf::MultiPoint3D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "MultiPoint",
       coordinates: self.point.map { |point| point.toGeoJSON()[:coordinates] }
     }
@@ -40,7 +40,7 @@ Gis::Protobuf::MultiPoint3D.class_eval {
 
 Gis::Protobuf::LineString2D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "LineString",
       coordinates: self.point.map { |point| point.toGeoJSON()[:coordinates] }
     }
@@ -49,7 +49,7 @@ Gis::Protobuf::LineString2D.class_eval {
 
 Gis::Protobuf::LineString3D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "LineString",
       coordinates: self.point.map { |point| point.toGeoJSON()[:coordinates] }
     }
@@ -58,7 +58,7 @@ Gis::Protobuf::LineString3D.class_eval {
 
 Gis::Protobuf::MultiLineString2D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "MultiLineString",
       coordinates: self.line_string.map { |line_string| line_string.toGeoJSON()[:coordinates] }
     }
@@ -67,7 +67,7 @@ Gis::Protobuf::MultiLineString2D.class_eval {
 
 Gis::Protobuf::MultiLineString3D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "MultiLineString",
       coordinates: self.line_string.map { |line_string| line_string.toGeoJSON()[:coordinates] }
     }
@@ -76,7 +76,7 @@ Gis::Protobuf::MultiLineString3D.class_eval {
 
 Gis::Protobuf::Polygon2D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "Polygon",
       coordinates: [self.point.map { |point| point.toGeoJSON()[:coordinates] }]
     }
@@ -85,7 +85,7 @@ Gis::Protobuf::Polygon2D.class_eval {
 
 Gis::Protobuf::Polygon3D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "Polygon",
       coordinates: [self.point.map { |point| point.toGeoJSON()[:coordinates] }]
     }
@@ -94,7 +94,7 @@ Gis::Protobuf::Polygon3D.class_eval {
 
 Gis::Protobuf::MultiPolygon2D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "MultiPolygon",
       coordinates: self.polygon.map { |polygon| polygon.toGeoJSON()[:coordinates] }
     }
@@ -103,7 +103,7 @@ Gis::Protobuf::MultiPolygon2D.class_eval {
 
 Gis::Protobuf::MultiPolygon3D.class_eval {
   def toGeoJSON()
-    return {
+    {
       type: "MultiPolygon",
       coordinates: self.polygon.map { |polygon| polygon.toGeoJSON()[:coordinates] }
     }
