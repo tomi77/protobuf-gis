@@ -22,6 +22,10 @@ ruby/spec/reports/
 ruby/tmp/
 ruby/.rspec_status
 
+# go
+go/pkg/
+go/src/github.com/
+
 autom4te.cache/
 aclocal.m4
 config.*

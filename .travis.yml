@@ -5,39 +5,32 @@ env:
     - TEST_NODE=no
     - TEST_PYTHON=no
     - TEST_RUBY=no
+    - TEST_GO=no
 
 matrix:
   include:
     - node_js: node
       env:
         - TEST_NODE=yes
-        - TEST_PYTHON=no
-        - TEST_RUBY=no
     - python: 2.7
       env:
-        - TEST_NODE=no
         - TEST_PYTHON=yes
-        - TEST_RUBY=no
     - python: 3.4
       env:
-        - TEST_NODE=no
         - TEST_PYTHON=yes
-        - TEST_RUBY=no
     - python: 3.5
       env:
-        - TEST_NODE=no
         - TEST_PYTHON=yes
-        - TEST_RUBY=no
     - python: 3.6
       env:
-        - TEST_NODE=no
         - TEST_PYTHON=yes
-        - TEST_RUBY=no
-    - rvm: 2.4.1
+    - rvm: 2.4
       env:
-        - TEST_NODE=no
-        - TEST_PYTHON=no
         - TEST_RUBY=yes
+    - go: 1.7
+      go_import_path: $GOPATH/src/github.com/tomi77/protobuf-gis/go
+      env:
+        - TEST_GO=yes
 
 before_install:
   - curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
@@ -47,13 +40,16 @@ before_install:
   - if [ $TEST_NODE == "yes" ]; then cd js; npm run prepare; fi
   - if [ $TEST_PYTHON == "yes" ]; then cd python; fi
   - if [ $TEST_RUBY == "yes" ]; then cd ruby; gem install bundler -v 1.15.3; fi
+  - if [ $TEST_GO == "yes" ]; then cd go; fi
 
 install:
   - if [ $TEST_NODE == "yes" ]; then npm install; fi
   - if [ $TEST_PYTHON == "yes" ]; then pip install protobuf==3.3.0; fi
   - if [ $TEST_RUBY == "yes" ]; then ./bin/setup; fi
+  - if [ $TEST_GO == "yes" ]; then go get github.com/golang/protobuf/proto; fi
 
 script:
   - if [ $TEST_NODE == "yes" ]; then npm test; fi
   - if [ $TEST_PYTHON == "yes" ]; then python setup.py test; fi
   - if [ $TEST_RUBY == "yes" ]; then rake spec; fi
+  - if [ $TEST_GO == "yes" ]; then go test -v gis/protobuf; fi
