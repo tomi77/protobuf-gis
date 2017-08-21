@@ -3,7 +3,7 @@
 ## Installation
 
 ~~~sh
-go get github.com/tomi77/protobuf-gis/go
+go get github.com/tomi77/protobuf-gis/go/gis/protobuf
 ~~~
 
 

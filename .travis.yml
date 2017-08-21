@@ -39,7 +39,7 @@ before_install:
   - if [ $TEST_NODE == "yes" ]; then cd js; npm run prepare; fi
   - if [ $TEST_PYTHON == "yes" ]; then cd python; fi
   - if [ $TEST_RUBY == "yes" ]; then cd ruby; gem install bundler -v 1.15.3; fi
-  - if [ $TEST_GO == "yes" ]; then cd go; export GOPATH=$(pwd); fi
+  - if [ $TEST_GO == "yes" ]; then cd go/gis/protobuf; export GOPATH=$(pwd); fi
 
 install:
   - if [ $TEST_NODE == "yes" ]; then npm install; fi
@@ -51,4 +51,4 @@ script:
   - if [ $TEST_NODE == "yes" ]; then npm test; fi
   - if [ $TEST_PYTHON == "yes" ]; then python setup.py test; fi
   - if [ $TEST_RUBY == "yes" ]; then rake spec; fi
-  - if [ $TEST_GO == "yes" ]; then go test -v gis/protobuf; fi
+  - if [ $TEST_GO == "yes" ]; then go test -v; fi
