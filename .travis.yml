@@ -28,9 +28,9 @@ matrix:
       env:
         - TEST_RUBY=yes
     - go: 1.7
-      go_import_path: $GOPATH/src/github.com/tomi77/protobuf-gis/go
       env:
         - TEST_GO=yes
+        - GOPATH=~/gopath/src/gis/protobuf/go
 
 before_install:
   - curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
